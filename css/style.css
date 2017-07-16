@@ -297,7 +297,7 @@ textarea.form-control {
 }
 
 .calltoaction {
-    background: url(../images/item-3.jpg);
+    background: url(../images/timg.jpg);
     background-color: #222;
     background-repeat: no-repeat;
     background-position: 0 0;
@@ -318,7 +318,7 @@ textarea.form-control {
 .calltoaction-decription {
     padding-top: 20px;
     padding-bottom: 30px;
-    font-size: 20px;
+    font-size: 16px;
     color: #fff;
 }
 
