@@ -65,7 +65,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/blog/">技术博客</a>
+                <a class="navbar-brand" href="/blog/" target="_blank">技术博客</a>
             </div>
 
             <div class="collapse navbar-collapse" id="custom-collapse">
@@ -477,8 +477,8 @@
                         </div>
 
                         <div class="form-group wow fadeInUp" data-wow-delay=".1s">
-                            <label class="sr-only" for="c_email">Email</label>
-                            <input type="email" id="c_email" class="form-control" name="c_email" placeholder="E-mail">
+                            <label class="sr-only" for="c_subject">Subject</label>
+                            <input type="text" id="c_subject" class="form-control" name="c_email" placeholder="Subject">
                         </div>
 
                         <div class="form-group wow fadeInUp" data-wow-delay=".2s">
@@ -486,8 +486,9 @@
                                       placeholder="Message"></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-lg btn-block wow fadeInUp" data-wow-delay=".3s">Send
-                            Message
+                        <button type="submit" id="sendMessage" class="btn btn-lg btn-block wow fadeInUp"
+                                data-wow-delay=".3s">
+                            <a id="sendEmail" href="javascript:void(0);">Send Message</a>
                         </button>
                     </div>
                     <div class="ajax-response"></div>
@@ -527,7 +528,7 @@
                     哪有什么天生如此，只是我天天坚持，自律给我自由
                 </p>
                 <p class="copyright">
-                    © 2016-2017 个人主页 | 本站点模板来源于<a href="http://www.cssmoban.com/" target="_blank">模板之家</a>，采用<a
+                    © 2016-2017 个人主页 | 本站点页面来源于<a href="http://www.cssmoban.com/" target="_blank">模板之家</a>，采用<a
                         href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
                         target="_blank">知识共享署名-非商业性使用-相同方式共享4.0国际许可协议</a>
                 </p>
@@ -549,7 +550,7 @@
 <!-- Scroll to top end-->
 
 <div>
-    <!--添加背景音乐，如果添加在layout頁面每頁都有，现在设置为首页有背景音乐-->
+    添加背景音乐，如果添加在layout頁面每頁都有，现在设置为首页有背景音乐
     <audio autoplay="autoplay" loop="loop">
         <source src="./audio/夜空中最亮的星.mp3" type="audio/mpeg">
     </audio>
@@ -568,6 +569,36 @@
 <script src="./js/waypoints.min.js"></script>
 <script src="./js/jquery.cbpQTRotator.js"></script>
 <script src="./js/custom.js"></script>
+
+<script type="text/javascript">
+    /**
+     * 发邮件的函数
+     * @param subject 标题
+     * @param body 主体
+     */
+    var toEmail = function (subject, body) {
+        // to email
+        var email = "mailto:wuzguo@gmail.com";
+        // 组装URL
+        var url = email + "?subject=" + subject + "&body=" + body;
+        // 发送
+        $("#sendEmail").attr("href", url);
+    }
+
+    /**
+     * 点击事件
+     */
+    $(document).on("click", "#sendMessage", function () {
+        var name = $("#c_name").val();
+        var subject = $("#c_subject").val();
+        var body = $("#c_message").val();
+        // 如果都不为空就发邮件
+        if ($.trim(subject) && $.trim(body) && $.trim(name)) {
+            subject += " From " + name;
+            toEmail(subject, body);
+        }
+    });
+</script>
 
 </body>
 </html>

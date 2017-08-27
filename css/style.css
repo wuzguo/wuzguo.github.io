@@ -999,3 +999,11 @@ figure.effect-bubba:hover p {
 
 }
 
+#sendMessage a {
+    text-decoration: none !important;
+}
+
+#sendMessage a:hover, #sendMessage a:focus {
+    text-decoration: none !important;
+    color: #E7746F !important;
+}
