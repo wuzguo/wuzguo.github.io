@@ -1,8 +1,18 @@
-@import url(http://fonts.useso.com/css?family=Raleway:400,300,500,700,800);
-@import url(http://fonts.useso.com/css?family=Lobster);
+@font-face {
+    font-family: 'Raleway';
+    src: url('../fonts/Raleway-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
 
 body {
     font: 300 13px/1.8 'Raleway', sans-serif;
+    color: #666;
+    overflow-x: hidden;
+}
+
+.copyright {
+    font: 300 12px/1.8 sans-serif;
     color: #666;
     overflow-x: hidden;
 }
@@ -566,7 +576,7 @@ p.heart {
 
 .navbar-custom .navbar-brand {
     font-weight: 900;
-    font-size: 15px;
+    font-size: 13px;
     /*font-family: Lobster, cursive;*/
 }
 
