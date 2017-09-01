@@ -19,7 +19,7 @@
 
     <style>
         body {
-            background-color: #000000;
+            background-color: #ffffff;
             margin: 0px;
             overflow: hidden;
             text-align: center;
@@ -41,6 +41,13 @@
     </style>
 </head>
 <body>
+
+<!-- Preloader -->
+
+<div id="preloader">
+    <div id="status"></div>
+</div>
+
 
 <div id="main-index">
 
@@ -75,6 +82,7 @@
 
             gl_FragColor = vec4( pos, 1.0 );
         }
+
 
 
 
@@ -231,6 +239,7 @@
 
 
 
+
     </script>
 
     <!-- Particles vertex shader -->
@@ -301,6 +310,7 @@
 
 
 
+
     </script>
 
     <!-- Particles fragment shader -->
@@ -339,17 +349,12 @@
 
 
 
+
     </script>
 
 </div>
 
-
 <div id="main-home" style="display: none;">
-    <!-- Preloader -->
-
-    <div id="preloader">
-        <div id="status"></div>
-    </div>
 
     <!-- Home start -->
 
@@ -1229,9 +1234,10 @@
             var audio = document.getElementById("homeAudio");
             console.log(audio.readyState);
             if (audio.readyState == 4) {
+                $("body").css("background-color", "#000000");
+
                 init();
                 animate();
-                
                 // 十秒钟后切换
                 // 注意函数名没有引号和括弧！
                 setTimeout(showHome, 10000);
