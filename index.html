@@ -22,8 +22,6 @@
             background-color: #000000;
             margin: 0px;
             overflow: hidden;
-            /*font-family: Monospace;*/
-            /*font-size: 13px;*/
             text-align: center;
             cursor: pointer;
         }
@@ -41,9 +39,6 @@
         }
 
     </style>
-
-    <script src="./static/modernizr.custom.js"></script>
-
 </head>
 <body>
 
@@ -80,6 +75,9 @@
 
             gl_FragColor = vec4( pos, 1.0 );
         }
+
+
+
 
 
 
@@ -200,6 +198,9 @@
 
 
 
+
+
+
     </script>
 
     <!-- Particles vertex shader -->
@@ -252,6 +253,9 @@
 
 
 
+
+
+
     </script>
 
     <!-- Particles fragment shader -->
@@ -266,6 +270,9 @@
             }
             gl_FragColor = vColor;
         }
+
+
+
 
 
 
@@ -813,7 +820,7 @@
 
     <div>
         <!--添加背景音乐，如果添加在layout頁面每頁都有，现在设置为首页有背景音乐-->
-        <audio autoplay="autoplay" loop="loop">
+        <audio id="homeAudio" autoplay="autoplay" loop="loop">
             <source src="./audio/夜空中最亮的星.mp3" type="audio/mpeg">
         </audio>
     </div>
@@ -821,7 +828,7 @@
 </div>
 
 <!--Javascript files-->
-
+<script type="text/javascript" src="./static/modernizr.custom.js"></script>
 <script type="text/javascript" src="./vendor/jquery/jquery-1.10.2.js"></script>
 <script type="text/javascript" src="./vendor/three/three.min.js"></script>
 <script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
@@ -863,7 +870,6 @@
     var PARTICLES = WIDTH * WIDTH;
     document.getElementById('protoplanets').innerText = PARTICLES;
 
-
     var gpuCompute;
     var velocityVariable;
     var positionVariable;
@@ -871,7 +877,6 @@
     var velocityUniforms;
     var particleUniforms;
     var effectController;
-
 
     function init() {
         container = document.createElement('div');
@@ -1164,8 +1169,13 @@
         // 注意函数名没有引号和括弧！
         setTimeout(showHome, 10000);
 
-        init();
-        animate();
+        (function () {
+            if ($("#homeAudio").attr('readyState')) {
+                alert("it's ready!");
+                init();
+                animate();
+            }
+        })();
     });
 
 </script>
