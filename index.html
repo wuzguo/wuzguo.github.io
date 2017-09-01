@@ -89,6 +89,8 @@
 
 
 
+
+
     </script>
 
     <!-- Fragment shader for protoplanet's velocity -->
@@ -201,6 +203,8 @@
 
 
 
+
+
     </script>
 
     <!-- Particles vertex shader -->
@@ -256,6 +260,8 @@
 
 
 
+
+
     </script>
 
     <!-- Particles fragment shader -->
@@ -270,6 +276,8 @@
             }
             gl_FragColor = vColor;
         }
+
+
 
 
 
@@ -1169,13 +1177,15 @@
         // 注意函数名没有引号和括弧！
         setTimeout(showHome, 10000);
 
-        (function () {
+        function audioReady() {
             if ($("#homeAudio").attr('readyState')) {
                 alert("it's ready!");
                 init();
                 animate();
             }
-        })();
+        };
+
+        audioReady();
     });
 
 </script>
