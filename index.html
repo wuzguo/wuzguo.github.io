@@ -264,7 +264,7 @@
         <div class="intro">
             <div class="start">一个有节操的码农，一个</div>
             <h1>Java And JavaScript 开发人员</h1>
-            <div class="start">擅长创建现代化的分布式集群互联网应用</div>
+            <div class="start">擅长创建现代化的分布式互联网应用</div>
         </div>
 
         <a href="#services">
@@ -1125,14 +1125,15 @@
         // 页面切换函数
         function showHome() {
             //参数可以设置 为空、“slow”、数字
-            $("#main-home").fadeIn(3000,
-                function () {
-                    $("#home").css("background-color", "#222");
-                    $("body").css("background-color", "#FFF");
-                }
-            );
-
-            $("#main-container").fadeOut(5000);
+            $("#main-container").fadeOut(3000, function () {
+                //参数可以设置 为空、“slow”、数字
+                $("#main-home").fadeIn(3000,
+                    function () {
+                        $("#home").css("background-color", "#222");
+                        $("body").css("background-color", "#FFF");
+                    }
+                );
+            });
         }
 
         // 当页面中的Audio文件加载完成后才开始倒计时
